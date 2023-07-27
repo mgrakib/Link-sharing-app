@@ -1,13 +1,21 @@
-import { createContext } from "react";
+/** @format */
 
+import { createContext, useState } from "react";
 
 export const AuthContext = createContext({});
 
-const AuthProvider = ({ children}) => {
-
-
-    const authInfo = {}
-    return (
+const AuthProvider = ({ children }) => {
+  const [links, setLinks] = useState(0);
+  const linksItems = []
+  const [linksItemsValue, setLinksItemsValue] = useState(linksItems)
+	const authInfo = {
+		links,
+		setLinks,
+		linksItems,
+		linksItemsValue,
+		setLinksItemsValue,
+	};
+	return (
 		<AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
 	);
 };
