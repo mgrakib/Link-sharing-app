@@ -63,7 +63,7 @@ const CreateLink = () => {
 					<div>
 						<select
 							name=''
-							onChange={(evetn) => changeLinkLabel(evetn, i + 1)}
+							onChange={evetn => changeLinkLabel(evetn, i + 1)}
 							id={i + 1}
 							className='py-2 px-10 w-full border border-gray-500 relative rounded outline-none text-gray-600'
 						>

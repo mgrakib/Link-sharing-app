@@ -1,6 +1,6 @@
 /** @format */
 
-import { BsGithub } from "react-icons/bs";
+import { BsFacebook, BsGithub, BsInstagram, BsLinkedin, BsTwitter, BsYoutube } from "react-icons/bs";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -35,12 +35,35 @@ const Links = () => {
 						return (
 							<div
 								key={link.id}
-								className='bg-[#191919] text-white w-full py-[6px] px-3 rounded-md flex items-center justify-between cursor-pointer'
+								className={`${
+									(name === "github" && "bg-[#191919]") ||
+									(name === "youtube" && "bg-[#EF383A]") ||
+									(name === "linkedin" && "bg-[#2D69FF]") ||
+									(name === "facebook" && "bg-[#4064AC]") ||
+									(name === "instagram" && "bg-[#DE2C7F]") ||
+									(name === "twitter" && "bg-[#1C9CEA]")
+								}  
+								
+								
+								text-white w-full py-[6px] px-3 rounded-md flex items-center justify-between cursor-pointer`}
 							>
 								<div className='flex items-center gap-2'>
-									<BsGithub />{" "}
+									{(name === "github" && <BsGithub />) ||
+										(name === "youtube" && <BsYoutube />) ||
+										(name === "linkedin" && (
+											<BsLinkedin />
+										)) ||
+										(name === "facebook" && (
+											<BsFacebook />
+										)) ||
+										(name === "instagram" && (
+											<BsInstagram />
+										)) ||
+										(name === "twitter" && <BsTwitter />)}
 									<span>
-										<small>{name}</small>
+										<small className='uppercase'>
+											{name}
+										</small>
 									</span>
 								</div>
 
